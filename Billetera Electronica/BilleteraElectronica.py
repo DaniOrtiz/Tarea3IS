@@ -6,32 +6,30 @@ Created on 4/5/2015
 '''
 class BilleteraElectronica(object):
 
-    def __init__(self, nombres, apellidos, CI, PIN):
+    def __init__(self, ID, nombres, apellidos, CI, PIN):
+        self.ID = ID
         self.nombres = nombres
         self.apellidos = apellidos
         self.CI = CI
         self.PIN = PIN
         self.creditos = []
         self.debitos = []
-        self.saldo = 0
+        self.balance = 0
         
-    def recargas(self, monto, fecha, identificador):
+    def saldo (self):
+        return(self.balance)
+            
+    def recargar(self, monto, fecha, identificador):
         recarga = (monto,fecha,identificador) 
         self.creditos.append(recarga)
-        self.saldo += monto
+        self.balance += monto
         
-    def consumos(self, monto, fecha, identificador):
-        if monto > self.saldo:
+    def consumir(self, monto, fecha, identificador):
+        if monto > self.balance:
             raise Exception("saldo insuficiente")
         else: 
             consumo = (monto,fecha,identificador)
             self.debitos.append(consumo)
-            self.saldo -= monto
+            self.balance -= monto
         
-        
-    def saldo(self,recargas):
-    #   self.balance = balance
     
-    def recargar(self):
-    
-    def consumir(self):
