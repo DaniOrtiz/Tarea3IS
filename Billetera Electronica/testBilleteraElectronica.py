@@ -12,7 +12,7 @@ import BilleteraElectronica
 class TestBilleteraElectronicaExists(unittest.TestCase):
 
     def testBilleteraElectronicaExists(self):
-        BilleteraElectronica(111111111, Maria, Lopez, 9345678, 111111)
+        BilleteraElectronica(111111111, "Maria", "Lopez", 9345678, 111111)
 
 
 if __name__ == "__main__":
